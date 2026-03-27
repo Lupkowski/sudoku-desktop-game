@@ -14,6 +14,14 @@ import sudoku.model.solver.BacktrackingSudokuSolver;
 
 public class SudokuBoardTest {
 
+    //Added test to test sudoku board size
+    @Test
+    void testBoardSize() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        assertEquals(9, SudokuBoard.BOARD_SIZE, "BOARD_SIZE constant should be 9 for a classic game");
+        assertThrows(IndexOutOfBoundsException.class, () -> sudokuBoard.getField(SudokuBoard.BOARD_SIZE, SudokuBoard.BOARD_SIZE));
+    }
+
     @Test
     void testFillBoardCorrectness() {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
